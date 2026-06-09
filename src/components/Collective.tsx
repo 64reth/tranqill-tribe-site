@@ -1,7 +1,9 @@
 export default function Collective() {
   return (
-    <section id="collective" className="bg-[#f5f5f5] py-24 text-black">
-      <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
+    <section id="collective" className="relative overflow-hidden bg-[#f5f5f5] py-24 text-black">
+      <div className="pointer-events-none absolute inset-0 bg-[url('/images/tribal-diamond-soft.png')] bg-[length:280px_280px] bg-center opacity-[0.05]" />
+
+      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
         <div>
           <p className="mb-6 text-xs uppercase tracking-[0.35em] text-black/50">
             The Collective

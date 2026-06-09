@@ -1,6 +1,11 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Collective from "@/components/Collective";
+import Releases from "@/components/Releases";
+import Production from "@/components/Production";
+import Shows from "@/components/Shows";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +13,11 @@ export default function Home() {
       <Header />
       <Hero />
       <Collective />
+      <Releases />
+      <Production />
+      <Shows />
+      <Contact />
+      <Footer />
     </main>
   );
 }

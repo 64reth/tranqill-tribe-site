@@ -4,7 +4,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <a href="/" className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em]">
           <img
-            src="/images/logo.png"
+            src="/logos/logo.png"
             alt=""
             className="h-9 w-9 rounded-full object-cover ring-1 ring-white/15"
           />
