@@ -10,20 +10,20 @@ export default function Collective() {
           </p>
 
           <h2 className="text-5xl font-black uppercase tracking-[0.14em] sm:text-6xl">
-            A collective built on feeling
+            The Collective
           </h2>
 
-          <p className="mt-8 max-w-xl text-lg leading-8 text-black/70">
-            Tranqill Tribe functions less like a traditional production team and
-            more like a creative think tank for sound — songwriters, producers
-            and DJs working together to develop records that are melodically
-            addictive, emotionally resonant and culturally scalable.
-          </p>
+          <div className="mt-8 max-w-xl space-y-5 text-lg leading-8 text-black/70">
+            <p>A songwriting, production and performance collective.</p>
+            <p>Built around melody, rhythm and feeling.</p>
+          </div>
 
-          <p className="mt-6 max-w-xl text-lg leading-8 text-black/70">
-            Names and faces remain secondary. In a world driven by visibility,
-            the music deserves to stand on its own terms.
-          </p>
+          <a
+            href="#collective"
+            className="elastic-motion mt-10 inline-flex border border-black/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-black/65 transition hover:-translate-y-0.5 hover:scale-105 hover:border-black hover:bg-black hover:text-white"
+          >
+            The Collective
+          </a>
         </div>
 
         <div className="flex aspect-square items-center justify-center rounded-full border border-black/10 bg-black/5 p-12">

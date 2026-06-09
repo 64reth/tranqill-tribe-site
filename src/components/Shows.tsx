@@ -13,20 +13,29 @@ export default function Shows() {
       <div className="pointer-events-none absolute inset-0 bg-[url('/patterns/tribal-diamond-soft.png')] bg-[length:280px_280px] bg-center opacity-[0.05]" />
 
       <div className="brand-container relative">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
             <p className="mb-5 text-xs uppercase tracking-[0.35em] text-black/45">
-              Live
+              Performance
             </p>
             <h2 className="text-4xl font-black uppercase tracking-[0.14em] sm:text-6xl">
               Shows
             </h2>
           </div>
 
-          <p className="max-w-3xl text-lg leading-8 text-black/65">
-            Festival-scale DJ and hybrid electronic sets designed as emotional
-            journeys rather than playlists.
-          </p>
+          <div className="max-w-3xl space-y-6 text-lg leading-8 text-black/65">
+            <p>Built for sound systems.</p>
+            <p>
+              DJ and hybrid electronic sets for clubs, festivals and
+              dancefloors.
+            </p>
+            <a
+              href="#contact"
+              className="elastic-motion inline-flex border border-black/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-black/65 transition hover:-translate-y-0.5 hover:scale-105 hover:border-black hover:bg-black hover:text-white"
+            >
+              Bookings
+            </a>
+          </div>
         </div>
 
         <div className="mt-14 border-y border-black/10">

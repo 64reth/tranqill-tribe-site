@@ -50,10 +50,19 @@ export default function Contact() {
             <h2 className="text-4xl font-black uppercase tracking-[0.14em] sm:text-6xl">
               Enquiries
             </h2>
-            <p className="mt-8 max-w-md text-base leading-8 text-white/55">
-              For releases, writing sessions, production, shows and
-              collaborations, send a note to the collective.
-            </p>
+            <div className="mt-8 max-w-md space-y-4 text-base leading-8 text-white/55">
+              <p>Songwriting.</p>
+              <p>Production.</p>
+              <p>Performance.</p>
+              <p>
+                <a
+                  href="mailto:tranqilltribe@gmail.com"
+                  className="text-white transition hover:text-white/70"
+                >
+                  tranqilltribe@gmail.com
+                </a>
+              </p>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="grid gap-5">
@@ -107,9 +116,9 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="border border-white px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] transition hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:border-white/25 disabled:text-white/35"
+                className="elastic-motion border border-white px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] transition hover:-translate-y-0.5 hover:scale-105 hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:border-white/25 disabled:text-white/35"
               >
-                {status === "sending" ? "Sending" : "Send enquiry"}
+                {status === "sending" ? "Sending" : "Send Enquiry"}
               </button>
 
               {status === "sent" && (
@@ -117,7 +126,7 @@ export default function Contact() {
               )}
               {status === "error" && (
                 <p className="text-sm text-white/55">
-                  Message failed to send. Please try again.
+                  Something went wrong. Try again.
                 </p>
               )}
             </div>

@@ -1,8 +1,8 @@
-# Healing Now
+# Stuck Up On You
 
 Artist: Tranqill Tribe  
-BPM: 170  
-Genre: Electronic / Drum & Bass  
+BPM: 122  
+Genre: Soulful House  
 
 Asset notes:
 - preview.mp3 is the current site preview audio.

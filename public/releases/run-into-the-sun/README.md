@@ -1,8 +1,8 @@
-# Healing Now
+# Run Into The Sun
 
 Artist: Tranqill Tribe  
-BPM: 170  
-Genre: Electronic / Drum & Bass  
+BPM: 120  
+Genre: Afro House  
 
 Asset notes:
 - preview.mp3 is the current site preview audio.

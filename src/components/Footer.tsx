@@ -19,7 +19,7 @@ export default function Footer() {
               Tranqill Tribe
             </p>
             <p className="mt-1 text-xs uppercase tracking-[0.22em] text-white/40">
-              Music for the emotionally awake
+              Music for the emotionally awake.
             </p>
           </div>
         </div>

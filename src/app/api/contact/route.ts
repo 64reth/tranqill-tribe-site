@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
     const { name, email, type, message } = await req.json();
@@ -14,20 +12,33 @@ export async function POST(req: Request) {
       );
     }
 
-    await resend.emails.send({
-      from: process.env.CONTACT_FROM_EMAIL!,
-      to: process.env.CONTACT_TO_EMAIL!,
-      subject: `Tranqill Tribe enquiry: ${type || "General"}`,
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const from = process.env.CONTACT_FROM_EMAIL;
+    const to = process.env.CONTACT_TO_EMAIL;
+    const enquiryType = type || "General";
+
+    if (!from || !to || !process.env.RESEND_API_KEY) {
+      throw new Error("Missing contact email configuration.");
+    }
+
+    const { error } = await resend.emails.send({
+      from,
+      to,
+      subject: `Tranqill Tribe enquiry: ${enquiryType}`,
       replyTo: email,
       text: `
 Name: ${name}
 Email: ${email}
-Type: ${type || "General"}
+Type: ${enquiryType}
 
 Message:
 ${message}
       `,
     });
+
+    if (error) {
+      throw new Error(error.message);
+    }
 
     return NextResponse.json({ success: true });
   } catch {
