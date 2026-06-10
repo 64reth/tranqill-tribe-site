@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const socialLinks = [
+  ["Instagram", "https://www.instagram.com/tranqill_tribe/"],
+  ["TikTok", "https://www.tiktok.com/@tranqilltribe"],
+];
+
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#050505] py-10">
@@ -24,16 +29,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex gap-6 text-xs uppercase tracking-[0.22em] text-white/45">
-          <Link href="#music" className="hover:text-white">
+        <div className="flex flex-wrap gap-6 text-xs uppercase tracking-[0.22em] text-white/45">
+          <Link href="#music" className="transition hover:text-white">
             Music
           </Link>
-          <Link href="#shows" className="hover:text-white">
+          <Link href="#shows" className="transition hover:text-white">
             Shows
           </Link>
-          <Link href="#contact" className="hover:text-white">
+          <Link href="#contact" className="transition hover:text-white">
             Contact
           </Link>
+          {socialLinks.map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-white"
+            >
+              {label}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

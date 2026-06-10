@@ -10,6 +10,11 @@ const navLinks = [
   ["Contact", "#contact"],
 ];
 
+const socialLinks = [
+  ["IG", "Instagram", "https://www.instagram.com/tranqill_tribe/"],
+  ["TT", "TikTok", "https://www.tiktok.com/@tranqilltribe"],
+];
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,6 +72,20 @@ export default function Header() {
           >
             Enquire
           </a>
+          <div className="flex items-center gap-4 border-l border-white/10 pl-6">
+            {socialLinks.map(([shortLabel, label, href]) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="elastic-motion text-xs uppercase tracking-[0.25em] text-white/45 transition hover:-translate-y-0.5 hover:scale-105 hover:text-white"
+              >
+                {shortLabel}
+              </a>
+            ))}
+          </div>
         </nav>
 
         <button
@@ -108,6 +127,20 @@ export default function Header() {
           >
             Enquire
           </a>
+          <div className="mt-4 grid grid-cols-2 gap-3 border-t border-white/10 pt-5">
+            {socialLinks.map(([, label, href]) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="elastic-motion border border-white/15 px-5 py-4 text-center text-xs uppercase tracking-[0.28em] text-white/60 transition hover:scale-[1.02] hover:border-white/35 hover:text-white active:scale-[0.99]"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
         </nav>
       )}
     </header>
