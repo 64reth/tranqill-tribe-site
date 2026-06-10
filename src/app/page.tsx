@@ -5,6 +5,7 @@ import Releases from "@/components/Releases";
 import Production from "@/components/Production";
 import Shows from "@/components/Shows";
 import Contact from "@/components/Contact";
+import Tribute from "@/components/Tribute";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Production />
       <Shows />
       <Contact />
+      <Tribute />
       <Footer />
     </main>
   );
