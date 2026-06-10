@@ -9,6 +9,11 @@ export default function Contact() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (status === "sending") {
+      return;
+    }
+
     setStatus("sending");
 
     const form = event.currentTarget;

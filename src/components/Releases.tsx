@@ -9,17 +9,26 @@ type AudioStatus = "idle" | "playing" | "paused" | "error";
 
 export default function Releases() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const playRequestRef = useRef(0);
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
   const [audioStatus, setAudioStatus] = useState<AudioStatus>("idle");
+  const [pendingSlug, setPendingSlug] = useState<string | null>(null);
 
   useEffect(() => {
     return () => {
+      playRequestRef.current += 1;
       audioRef.current?.pause();
+      audioRef.current?.removeAttribute("src");
+      audioRef.current?.load();
       audioRef.current = null;
     };
   }, []);
 
   async function togglePreview(preview: string, slug: string) {
+    if (pendingSlug) {
+      return;
+    }
+
     if (!preview) {
       setActiveSlug(slug);
       setAudioStatus("error");
@@ -32,32 +41,48 @@ export default function Releases() {
       return;
     }
 
+    const requestId = playRequestRef.current + 1;
+    playRequestRef.current = requestId;
+    setPendingSlug(slug);
+
     if (audioRef.current) {
       audioRef.current.pause();
+      audioRef.current.removeAttribute("src");
+      audioRef.current.load();
       audioRef.current = null;
     }
 
     const audio = new Audio(preview);
+    audio.preload = "metadata";
     audioRef.current = audio;
     setActiveSlug(slug);
-    setAudioStatus("playing");
 
     audio.addEventListener("ended", () => {
-      if (audioRef.current === audio) {
+      if (audioRef.current === audio && playRequestRef.current === requestId) {
         setAudioStatus("paused");
       }
     });
 
     audio.addEventListener("error", () => {
-      if (audioRef.current === audio) {
+      if (audioRef.current === audio && playRequestRef.current === requestId) {
         setAudioStatus("error");
+        setPendingSlug(null);
       }
     });
 
     try {
       await audio.play();
+      if (audioRef.current === audio && playRequestRef.current === requestId) {
+        setAudioStatus("playing");
+      }
     } catch {
-      setAudioStatus("error");
+      if (audioRef.current === audio && playRequestRef.current === requestId) {
+        setAudioStatus("error");
+      }
+    } finally {
+      if (playRequestRef.current === requestId) {
+        setPendingSlug(null);
+      }
     }
   }
 
@@ -112,6 +137,7 @@ export default function Releases() {
           {releases.map((release, index) => {
             const isPlaying =
               activeSlug === release.slug && audioStatus === "playing";
+            const isPending = pendingSlug === release.slug;
             const statusText = getStatusText(release.slug, release.preview);
 
             return (
@@ -131,10 +157,11 @@ export default function Releases() {
                   <button
                     type="button"
                     onClick={() => togglePreview(release.preview, release.slug)}
-                    className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/35 bg-black/20 text-sm text-white/75 backdrop-blur transition group-hover:border-white group-hover:bg-white group-hover:text-black"
+                    disabled={Boolean(pendingSlug)}
+                    className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/35 bg-black/20 text-sm text-white/75 backdrop-blur transition group-hover:border-white group-hover:bg-white group-hover:text-black disabled:cursor-wait disabled:opacity-60"
                     aria-label={`${isPlaying ? "Pause" : "Play"} ${release.title} preview`}
                   >
-                    {isPlaying ? "Pause" : "Play"}
+                    {isPending ? "Load" : isPlaying ? "Pause" : "Play"}
                   </button>
                 </div>
 
