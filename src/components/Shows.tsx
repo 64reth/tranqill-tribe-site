@@ -15,15 +15,15 @@ export default function Shows() {
       <div className="brand-container relative">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
-            <p className="mb-5 text-xs uppercase tracking-[0.35em] text-black/45">
+            <p className="mb-5 text-xs uppercase tracking-[0.26em] text-black/45 sm:tracking-[0.35em]">
               Performance
             </p>
-            <h2 className="text-4xl font-black uppercase tracking-[0.14em] sm:text-6xl">
+            <h2 className="text-4xl font-black uppercase tracking-[0.12em] sm:text-6xl sm:tracking-[0.14em]">
               Shows
             </h2>
           </div>
 
-          <div className="max-w-3xl space-y-6 text-lg leading-8 text-black/65">
+          <div className="max-w-3xl space-y-6 text-base leading-8 text-black/65 sm:text-lg">
             <p>Built for sound systems.</p>
             <p>
               DJ and hybrid electronic sets for clubs, festivals and
@@ -31,7 +31,7 @@ export default function Shows() {
             </p>
             <a
               href="#contact"
-              className="elastic-motion inline-flex border border-black/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-black/65 transition hover:-translate-y-0.5 hover:scale-105 hover:border-black hover:bg-black hover:text-white"
+              className="elastic-motion flex min-h-12 w-full items-center justify-center border border-black/20 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.22em] text-black/65 transition hover:-translate-y-0.5 hover:scale-105 hover:border-black hover:bg-black hover:text-white sm:inline-flex sm:w-auto sm:tracking-[0.28em]"
             >
               Bookings
             </a>
@@ -42,7 +42,7 @@ export default function Shows() {
           {shows.map(([date, city, status]) => (
             <div
               key={`${date}-${city}`}
-              className="grid gap-3 border-b border-black/10 py-6 text-sm uppercase tracking-[0.18em] last:border-b-0 md:grid-cols-[1fr_1.4fr_0.5fr] md:items-center"
+              className="grid gap-3 border-b border-black/10 py-6 text-sm uppercase tracking-[0.14em] last:border-b-0 sm:tracking-[0.18em] md:grid-cols-[1fr_1.4fr_0.5fr] md:items-center"
             >
               <p className="font-semibold text-black">{date}</p>
               <p className="text-black/60">{city}</p>

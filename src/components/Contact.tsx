@@ -49,10 +49,10 @@ export default function Contact() {
       <div className="brand-container">
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="mb-5 text-xs uppercase tracking-[0.35em] text-white/45">
+            <p className="mb-5 text-xs uppercase tracking-[0.26em] text-white/45 sm:tracking-[0.35em]">
               Contact
             </p>
-            <h2 className="text-4xl font-black uppercase tracking-[0.14em] sm:text-6xl">
+            <h2 className="text-4xl font-black uppercase tracking-[0.11em] sm:text-6xl sm:tracking-[0.14em]">
               Enquiries
             </h2>
             <div className="mt-8 max-w-md space-y-4 text-base leading-8 text-white/55">
@@ -77,7 +77,7 @@ export default function Contact() {
                 <input
                   name="name"
                   required
-                  className="border border-white/10 bg-white/[0.035] px-4 py-4 text-base normal-case tracking-normal text-white outline-none transition placeholder:text-white/25 focus:border-white/35"
+                  className="min-h-12 w-full border border-white/10 bg-white/[0.035] px-4 py-4 text-base normal-case tracking-normal text-white outline-none transition placeholder:text-white/25 focus:border-white/35"
                 />
               </label>
 
@@ -87,7 +87,7 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="border border-white/10 bg-white/[0.035] px-4 py-4 text-base normal-case tracking-normal text-white outline-none transition placeholder:text-white/25 focus:border-white/35"
+                  className="min-h-12 w-full border border-white/10 bg-white/[0.035] px-4 py-4 text-base normal-case tracking-normal text-white outline-none transition placeholder:text-white/25 focus:border-white/35"
                 />
               </label>
             </div>
@@ -96,7 +96,7 @@ export default function Contact() {
               Enquiry type
               <select
                 name="type"
-                className="border border-white/10 bg-white/[0.035] px-4 py-4 text-base normal-case tracking-normal text-white outline-none transition focus:border-white/35"
+                className="min-h-12 w-full border border-white/10 bg-white/[0.035] px-4 py-4 text-base normal-case tracking-normal text-white outline-none transition focus:border-white/35"
                 defaultValue="General"
               >
                 <option className="bg-black text-white">General</option>
@@ -113,7 +113,7 @@ export default function Contact() {
                 name="message"
                 required
                 rows={6}
-                className="resize-none border border-white/10 bg-white/[0.035] px-4 py-4 text-base normal-case leading-7 tracking-normal text-white outline-none transition placeholder:text-white/25 focus:border-white/35"
+                className="w-full resize-none border border-white/10 bg-white/[0.035] px-4 py-4 text-base normal-case leading-7 tracking-normal text-white outline-none transition placeholder:text-white/25 focus:border-white/35"
               />
             </label>
 
@@ -121,7 +121,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="elastic-motion border border-white px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] transition hover:-translate-y-0.5 hover:scale-105 hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:border-white/25 disabled:text-white/35"
+                className="elastic-motion min-h-12 w-full border border-white px-8 py-4 text-xs font-semibold uppercase tracking-[0.22em] transition hover:-translate-y-0.5 hover:scale-105 hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:border-white/25 disabled:text-white/35 sm:w-auto sm:tracking-[0.28em]"
               >
                 {status === "sending" ? "Sending" : "Send Enquiry"}
               </button>

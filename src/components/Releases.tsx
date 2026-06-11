@@ -109,12 +109,12 @@ export default function Releases() {
   return (
     <section id="music" className="section-padding bg-black text-white">
       <div className="brand-container">
-        <div className="mb-14 grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+        <div className="mb-12 grid gap-8 sm:mb-14 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
           <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/50">
+            <p className="mb-4 text-xs uppercase tracking-[0.26em] text-white/50 sm:tracking-[0.35em]">
               Latest Releases
             </p>
-            <h2 className="text-4xl font-black uppercase tracking-[0.16em] sm:text-6xl">
+            <h2 className="text-4xl font-black uppercase tracking-[0.12em] sm:text-6xl sm:tracking-[0.16em]">
               The sound
             </h2>
           </div>
@@ -126,14 +126,14 @@ export default function Releases() {
             </p>
             <a
               href="#music"
-              className="elastic-motion inline-flex border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-white/65 transition hover:-translate-y-0.5 hover:scale-105 hover:border-white hover:bg-white hover:text-black"
+              className="elastic-motion flex min-h-12 w-full items-center justify-center border border-white/20 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white/65 transition hover:-translate-y-0.5 hover:scale-105 hover:border-white hover:bg-white hover:text-black sm:inline-flex sm:w-auto sm:tracking-[0.28em]"
             >
               Listen Now
             </a>
           </div>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {releases.map((release, index) => {
             const isPlaying =
               activeSlug === release.slug && audioStatus === "playing";
@@ -158,24 +158,24 @@ export default function Releases() {
                     type="button"
                     onClick={() => togglePreview(release.preview, release.slug)}
                     disabled={Boolean(pendingSlug)}
-                    className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/35 bg-black/20 text-sm text-white/75 backdrop-blur transition group-hover:border-white group-hover:bg-white group-hover:text-black disabled:cursor-wait disabled:opacity-60"
+                    className="relative flex h-16 w-16 items-center justify-center rounded-full border border-white/35 bg-black/20 text-xs font-semibold uppercase tracking-[0.08em] text-white/75 backdrop-blur transition group-hover:border-white group-hover:bg-white group-hover:text-black disabled:cursor-wait disabled:opacity-60 sm:h-14 sm:w-14 sm:text-sm sm:font-normal sm:normal-case sm:tracking-normal"
                     aria-label={`${isPlaying ? "Pause" : "Play"} ${release.title} preview`}
                   >
                     {isPending ? "Load" : isPlaying ? "Pause" : "Play"}
                   </button>
                 </div>
 
-                <h3 className="mt-5 text-lg font-bold uppercase tracking-[0.12em] text-white sm:text-xl">
+                <h3 className="mt-5 overflow-wrap-anywhere text-lg font-bold uppercase tracking-[0.09em] text-white sm:text-xl sm:tracking-[0.12em]">
                   {release.title}
                 </h3>
 
                 <p className="mt-2 text-sm text-white/45">{release.artist}</p>
 
-                <div className="mt-5 flex items-center justify-between gap-4 border-t border-white/10 pt-4">
-                  <p className="text-xs uppercase tracking-[0.22em] text-white/35">
+                <div className="mt-5 flex flex-col gap-2 border-t border-white/10 pt-4 min-[430px]:flex-row min-[430px]:items-center min-[430px]:justify-between min-[430px]:gap-4">
+                  <p className="min-w-0 text-xs uppercase tracking-[0.14em] text-white/35 sm:tracking-[0.22em]">
                     {release.bpm} BPM / {release.genre}
                   </p>
-                  <p className="text-right text-xs uppercase tracking-[0.22em] text-white/45">
+                  <p className="text-xs uppercase tracking-[0.14em] text-white/45 min-[430px]:text-right sm:tracking-[0.22em]">
                     {statusText}
                   </p>
                 </div>
