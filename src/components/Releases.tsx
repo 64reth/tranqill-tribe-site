@@ -2,10 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 import { releases } from "@/data/releases";
+import type { ReleaseStatus } from "@/data/releases";
 
 const fallbackArtwork = "/logos/tranqill-circle.png";
 
 type AudioStatus = "idle" | "playing" | "paused" | "error";
+
+const releaseStatusStyles: Record<
+  ReleaseStatus,
+  { label: string; className: string }
+> = {
+  featured: {
+    label: "Featured",
+    className: "border-white/45 text-white/80 bg-white/[0.035]",
+  },
+  "coming-soon": {
+    label: "Coming Soon",
+    className: "border-white/18 text-white/45 bg-transparent",
+  },
+};
 
 export default function Releases() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -139,6 +154,7 @@ export default function Releases() {
               activeSlug === release.slug && audioStatus === "playing";
             const isPending = pendingSlug === release.slug;
             const statusText = getStatusText(release.slug, release.preview);
+            const releaseStatus = releaseStatusStyles[release.status];
 
             return (
               <article
@@ -165,7 +181,13 @@ export default function Releases() {
                   </button>
                 </div>
 
-                <h3 className="mt-5 overflow-wrap-anywhere text-lg font-bold uppercase tracking-[0.09em] text-white sm:text-xl sm:tracking-[0.12em]">
+                <span
+                  className={`mt-5 inline-flex max-w-full items-center border px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] sm:tracking-[0.24em] ${releaseStatus.className}`}
+                >
+                  {releaseStatus.label}
+                </span>
+
+                <h3 className="mt-4 overflow-wrap-anywhere text-lg font-bold uppercase tracking-[0.09em] text-white sm:text-xl sm:tracking-[0.12em]">
                   {release.title}
                 </h3>
 

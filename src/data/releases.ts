@@ -1,4 +1,17 @@
-export const releases = [
+export type ReleaseStatus = "featured" | "coming-soon";
+
+type Release = {
+  title: string;
+  artist: string;
+  slug: string;
+  artwork: string;
+  preview: string;
+  bpm: number;
+  genre: string;
+  status: ReleaseStatus;
+};
+
+export const releases: Release[] = [
   {
     title: "Healing Now",
     artist: "Tranqill Tribe",
@@ -7,6 +20,7 @@ export const releases = [
     preview: "/releases/healing-now/preview.mp3",
     bpm: 170,
     genre: "Electronic / Drum & Bass",
+    status: "coming-soon",
   },
   {
     title: "Memories",
@@ -16,6 +30,7 @@ export const releases = [
     preview: "/releases/memories/preview.mp3",
     bpm: 120,
     genre: "Afro House",
+    status: "coming-soon",
   },
   {
     title: "Relationships Are Hard Work",
@@ -25,6 +40,7 @@ export const releases = [
     preview: "/releases/relationships-are-hard-work/preview.mp3",
     bpm: 120,
     genre: "Afro House",
+    status: "featured",
   },
   {
     title: "Run Into The Sun",
@@ -34,6 +50,7 @@ export const releases = [
     preview: "/releases/run-into-the-sun/preview.mp3",
     bpm: 120,
     genre: "Afro House",
+    status: "coming-soon",
   },
   {
     title: "Crossroads",
@@ -43,5 +60,6 @@ export const releases = [
     preview: "/releases/crossroads/preview.mp3",
     bpm: 122,
     genre: "Soulful House",
+    status: "featured",
   },
 ];
